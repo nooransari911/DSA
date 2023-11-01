@@ -1,3 +1,12 @@
+/*
+c file to demonstrate DLL_h.h file;
+
+demonstrates basic operations on DLL
+*/
+
+
+
+
 //
 // Created by moham on 10-10-2023.
 //
