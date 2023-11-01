@@ -1,3 +1,14 @@
+/*
+h file for creating any node;
+
+fields in node:
+  int
+  2 pointers to node
+*/
+
+
+
+
 //
 // Created by moham on 10-10-2023.
 //
