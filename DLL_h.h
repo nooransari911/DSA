@@ -1,3 +1,12 @@
+/*
+h file for creating and using doubly linked list;
+
+functions for inserting, deleting, searching, printing doubly linked list
+*/
+
+
+
+
 //
 // Created by moham on 10-10-2023.
 //
