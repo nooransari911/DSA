@@ -70,6 +70,7 @@ struct elle* create (int a) {
     te -> data = a;
     te -> link [0] = NULL;
     te -> link [1] = NULL;
+    te -> mark = 0;
 }
 
 
@@ -133,6 +134,16 @@ struct tree * generate_tree() {
 
 
 
+void reset_tree (struct tree* tree, struct linear* in) {
+    int i = 0;
+
+    for (i = 0; i <= in -> lastin; i++) {
+        in -> arr [i] -> mark = 0;
+    }
+}
+
+
+
 void printall (struct linear* in) {
     int i;
 
@@ -144,7 +155,7 @@ void printall (struct linear* in) {
 }
 
 
-void insert_qu (struct linear* qu, struct elle*  a) {
+void insert_st (struct linear* qu, struct elle*  a) {
     qu -> arr [qu->lastin + 1] = a;
 
     a -> mark ++;
@@ -154,8 +165,8 @@ void insert_qu (struct linear* qu, struct elle*  a) {
 
 
 void insert_master (struct linear* qu, struct linear* in, struct elle* a) {
-    insert_qu(qu, a);
-    insert_qu(in, a);
+    insert_st(qu, a);
+    insert_st(in, a);
 }
 
 
@@ -165,6 +176,18 @@ struct elle * access_qu (struct linear* qu) {
 
     te = qu -> arr [qu -> firstin];
     qu -> firstin ++;
+    qu -> size -- ;
+    te -> mark ++;
+
+    return te;
+}
+
+struct elle * access_st (struct linear* qu) {
+    struct elle* te;
+    te = create(0);
+
+    te = qu -> arr [qu -> lastin];
+    qu -> lastin --;
     qu -> size -- ;
     te -> mark ++;
 
@@ -192,4 +215,43 @@ void BFS (struct tree* tree, struct  linear* qu, struct  linear* in) {
             }
         }
     }
+
+    reset_tree(tree, in);
+}
+
+
+
+
+void DFS (struct tree* tree, struct linear* qu, struct linear* in) {
+    struct elle* te0;
+    te0 = create(0);
+    int i, j, k, flag0;
+    k = 1;
+    flag0 = 0;
+
+    te0 = tree -> root;
+    insert_master(qu, in, te0);
+
+
+    while (qu -> size != 0) {
+        te0 = access_st(qu);
+
+        for (i = 0; i < 2; i ++) {
+            if (te0 -> link [i] != NULL && te0 -> link [i] -> mark == 0) {
+                insert_master(qu, in, te0 -> link [i]);
+                flag0 = 1;
+                k = 1;
+                break;
+            }
+        }
+
+        if (flag0 == 0 && (k <= in -> lastin)) {
+                insert_st (qu, in -> arr [in -> lastin - k]);
+                k ++;
+        }
+
+        flag0 = 0;
+    }
+
+    reset_tree(tree, in);
 }
