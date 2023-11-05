@@ -18,6 +18,7 @@ int main() {
     qu = init_st();
     in = init_st();
     BFS (tree, qu, in);
+    printf ("Breadth-first traversal of graph is:");
     printall(in);
 
     //reset_tree(tree, in);
@@ -25,5 +26,6 @@ int main() {
     qu = init_st();
     in = init_st();
     DFS (tree, qu, in);
+    printf ("\n\nDepth-first traversal of graph is:");
     printall(in);
 }

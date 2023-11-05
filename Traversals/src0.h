@@ -147,7 +147,7 @@ void reset_tree (struct tree* tree, struct linear* in) {
 void printall (struct linear* in) {
     int i;
 
-    printf ("\n\n");
+    printf ("\n");
 
     for (i = 0; i <= in -> lastin; i++) {
         printf("%d\t", (in -> arr[i] -> data));
