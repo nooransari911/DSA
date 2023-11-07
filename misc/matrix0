@@ -2,6 +2,14 @@
 #include "malloc.h"
 
 
+/*
+matrix as a structure;
+functions:
+1. Create a matrix
+2. Print matrix
+*/
+
+
 typedef struct matrix {
     int n;
     int a [4] [4];
