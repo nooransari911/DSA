@@ -21,20 +21,25 @@
 
 
 
+// structure definitions begins here;
+
 typedef struct elle {
     int data;  // data to be processed by program
     struct elle * link [2];  // ptr to previous instance of type (struct elle)
-    int mark;
+    int mark; // marks elle
 } elle;
 
 
 typedef struct tree {
-    struct elle * root;
-    int size;
+    struct elle * root; // root to the entire tree
+    int size; // size of tree;
 } tree;
 
 
 typedef struct linear {
+// a general linear data structure;
+// can be accessed as stack or queue;
+
     struct elle * arr [100];
 
     int firstin;
@@ -42,16 +47,22 @@ typedef struct linear {
     int size;
 } linear;
 
-/*
-struct queue *qu;
-struct queue *in;
-struct queue *post;
- */
+// structure definitions ends here;
 
 
 
+
+
+
+
+
+// creates and initializes a new instance
+// of all type begins here;
 
 struct linear* init_st () {
+    // creates and initializes a new instance
+    // of type linear;
+    
     struct linear* a;
 
     a = (struct linear*) malloc (sizeof (struct linear));
@@ -64,6 +75,9 @@ struct linear* init_st () {
 
 
 struct elle* create (int a) {
+    // creates and initializes a new instance
+    // of type elle;
+
     struct elle* te;
 
     te = (struct elle *) malloc (sizeof (struct elle));
@@ -73,22 +87,33 @@ struct elle* create (int a) {
     te -> mark = 0;
 }
 
+// init_all types ends here;
+
+
+
+
+// 1. inserting a node into tree
+// 2. generating a new tree
+// 3. reset mark of all elle in tree
+// begins here;
 
 void insert_elle (struct elle* root, int r, int a) {
+    // creates and initializes a new instance
+    // of type linear;
+    // makes this as the child of given root;
+    
     struct elle *ptrnew;
     // declares existence of ptr to a
     // new instance of type (struct elle)
 
-
     ptrnew = create(a);
-    ptrnew -> mark = 0;
     root -> link [r] = ptrnew;
-        // returns ptr to newly created
-        // instance of type (struct elle)
 }
 
 
 struct tree * generate_tree() {
+    // generates a new tree;
+    
     struct tree* tree;
     struct elle* te0, * root;
     int i, j, k;
@@ -100,12 +125,8 @@ struct tree * generate_tree() {
     tree -> root = root;
     tree -> size = 1;
 
-
-
-
     insert_elle(root, 0, 1);
     insert_elle(root, 1, 2);
-
 
     k = 3;
     for (i = 0; i < 2; i++) {
@@ -115,8 +136,7 @@ struct tree * generate_tree() {
             k ++;
         }
     }
-
-
+    
     k = 7;
     for (i = 0; i < 2; i++) {
         for (j = 0; j < 2; j++) {
@@ -134,6 +154,10 @@ struct tree * generate_tree() {
 
 
 
+// 1. inserting a element into into tree
+// 2. generating a new tree
+// 3. reset mark of all elle in tree
+// begins here;
 void reset_tree (struct tree* tree, struct linear* in) {
     int i = 0;
 
@@ -141,6 +165,10 @@ void reset_tree (struct tree* tree, struct linear* in) {
         in -> arr [i] -> mark = 0;
     }
 }
+
+// modifying tree
+// ends here;
+
 
 
 
