@@ -163,9 +163,9 @@ void DFS(int i)
 void BFS (int v) {
 	int i;  
 	init_p_vis ();
-  
+	
 	insert(v); // insert lastin
-  V -> a [v] [0] = 1; // mark
+  	V -> a [v] [0] = 1; // mark
 	printf("\nvisited\n%d", v);
   
 
