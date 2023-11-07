@@ -152,12 +152,6 @@ struct tree * generate_tree() {
 }
 
 
-
-
-// 1. inserting a element into into tree
-// 2. generating a new tree
-// 3. reset mark of all elle in tree
-// begins here;
 void reset_tree (struct tree* tree, struct linear* in) {
     int i = 0;
 
@@ -171,6 +165,12 @@ void reset_tree (struct tree* tree, struct linear* in) {
 
 
 
+
+// 1. printing all eolements in linear
+// 2. inserting a new element into linear
+// 3. access linear as queue [firstin]
+// 4. access linear as stack [lastin]
+// begins here;
 
 void printall (struct linear* in) {
     int i;
@@ -210,6 +210,7 @@ struct elle * access_qu (struct linear* qu) {
     return te;
 }
 
+
 struct elle * access_st (struct linear* qu) {
     struct elle* te;
     te = create(0);
@@ -222,8 +223,18 @@ struct elle * access_st (struct linear* qu) {
     return te;
 }
 
+// linear ends here;
 
 
+
+
+
+
+
+
+// 1. breadth-first traversal
+// 2. depth first-traversal
+// begins here;
 
 void BFS (struct tree* tree, struct  linear* qu, struct  linear* in) {
     struct elle* te0;
@@ -283,3 +294,5 @@ void DFS (struct tree* tree, struct linear* qu, struct linear* in) {
 
     reset_tree(tree, in);
 }
+
+// BFS, DFS ends here;
