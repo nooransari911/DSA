@@ -145,7 +145,7 @@ int dele()
 		p.front++;
   	}
   
-	return(x);
+	return (x);
 }
 
 // insert, access logic ends here;
@@ -158,10 +158,10 @@ int dele()
 void DFS(int i)
 {
 	int j;
-	printf("\n%d",i);
 	visited[i]=1;
+	
 	for(j = 0; j < n; j++) {
-		if(visited[j] == 0 && G[i][j]==1) {
+		if(visited[j] == 0 && G[i][j] != 0) {
 			DFS(j);
 		}
 	}
@@ -205,6 +205,6 @@ void main()
 
 matrix0 = scanm ():
  
-    void BFS(int);
-    void DFS(int);
+    void BFS(0);
+    //void DFS(0);
 }
