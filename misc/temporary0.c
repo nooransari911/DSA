@@ -155,15 +155,40 @@ int dele()
 
 // BFS, DFS logic begins here
 
-void DFS(int i)
+void DFS(int v)
 {
-	int j;
-	visited[i]=1;
-	
-	for(j = 0; j < n; j++) {
-		if(visited[j] == 0 && G[i][j] != 0) {
-			DFS(j);
+	int i, j, k, flag0;  
+	init_p_vis ();
+	j = 0;
+	k = 2;
+	flag0 = 0;
+
+	insert(v); // insert lastin
+  	V -> a [0] [j] = v; // traversal answer
+	j++;
+	printf("\nvisited\n%d", v);
+  
+
+	while(empty() == 0) {
+		v = dele_st(); // access firstin
+    
+		for(i = 0; i < max; i++) {
+			if (V -> a [1] [i] == 0 && G [v] [i] != 0) {
+				insert(i);
+				V -> a [0] [j] = i;
+				j++;
+				printf("\n%d",i);
+				flag0 = 1;
+				break;
+			}
 		}
+	}
+
+	
+	if (flag0 == 0 && k < max) {
+		insert (V -> a [0] [j - k]);
+		k++;
+		flag0 = 0;
 	}
 }
 
