@@ -3,7 +3,7 @@
 //
 
 
-#include "BST.h"
+#include <AVL.h>
 
 
 
@@ -29,10 +29,19 @@ int main() {
     insertinBST(tree1, 25);
     insertinBST(tree1, 13);
     insertinBST(tree1, 22);
+
     te0 = searchinBST (tree1, 20);
     printf ("Item found;\nvalue: %d,\naddress: 0x%u", te0 -> data, te0);
     printinorder(tree1);
+
     deleteinBST (tree1, 10);
+    /*
+    deleteinBST (tree1, 40);
+    deleteinBST (tree1, 40);
+    deleteinBST (tree1, 22);
+    deleteinBST (tree1, 1);
+    deleteinBST (tree1, 2);
+    */
     printinorder(tree1);
 
 
@@ -43,4 +52,36 @@ int main() {
     Traversal_any (tree1, qu, in, 2);
     Traversal_any (tree1, qu, in, 3);
     Traversal_any (tree1, qu, in, 4);
+
+
+
+    struct tree * tree2;
+    te0 = create (20);
+    tree2 = (struct tree *) malloc (sizeof (struct tree));
+    tree2 -> root = te0;
+
+    insertinBST(tree2, 17);
+    insertinBST(tree2, 16);
+    insertinBST(tree2, 10);
+
+
+    printpostorder(tree2);
+    tree2 -> root = rightrotate (tree2 -> root);
+    printpostorder(tree2);
+
+
+
+
+    struct tree * tree3;
+    te0 = create (20);
+    tree3 = (struct tree *) malloc (sizeof (struct tree));
+    tree3 -> root = te0;
+
+    insertinBST(tree3, 17);
+    insertinBST(tree3, 16);
+    insertinBST(tree3, 10);
+
+    printpostorder(tree3);
+    tree3 -> root = rightrotate (tree3 -> root);
+    printpostorder(tree3);
 }

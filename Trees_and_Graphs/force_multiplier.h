@@ -27,6 +27,7 @@ typedef struct elle {
     int data;  // data to be processed by program
     struct elle * link [3];  // ptr to previous instance of type (struct elle)
     int mark; // marks elle
+    int BF;   // balance factor of elle
 } elle;
 
 
@@ -86,6 +87,7 @@ struct elle* create (int a) {
     te -> link [1] = NULL;
     te -> link [2] = NULL;
     te -> mark = 0;
+    te -> BF = 0;
 
     return te;
 }
@@ -98,6 +100,7 @@ struct elle* create (int a) {
 // 1. inserting a node into tree
 // 2. generating a new tree
 // 3. reset mark of all elle in tree
+// 4. Returns int for left or right child
 // begins here;
 
 void insert_elle (struct elle* root, int r, int a) {
@@ -166,6 +169,22 @@ void reset_tree (struct tree* tree, struct linear* in) {
     }
 }
 
+
+int whichchild (struct elle * root, struct elle * child) {
+    // returns int as per the child;
+    // returns 0 if given child is left child;
+    // returns 1 if given child is right child;
+
+    int i;
+    i = 0;
+
+    while (i < 2) {
+        if (root->link[i] == child) {
+            return i;
+        }
+        i++;
+    }
+}
 // modifying tree
 // ends here;
 
@@ -177,8 +196,6 @@ void reset_tree (struct tree* tree, struct linear* in) {
 // 3. access linear as queue [firstin]
 // 4. access linear as stack [lastin]
 // 5. access linear as stack [read-only]
-// 6. Returns int for left or right child
-// 7. Shifting all items in given linear by 1 position
 // begins here;
 
 void printall (struct linear* in) {
@@ -257,48 +274,19 @@ struct elle * peek_st (struct linear* qu) {
 }
 
 
-int whichchild (struct elle * root, struct elle * child) {
-    // returns int as per the child;
-    // returns 0 if given child is left child;
-    // returns 1 if given child is right child;
-
-    int i;
-    i = 0;
-
-    while (i < 2) {
-        if (root->link[i] == child) {
-            return i;
-        }
-        i++;
-    }
-}
 
 
-void shiftlinear (struct linear * this) {
-    // Shifts all data in all elements in linea arr
-    // by 1 position
-    // towards index 0;
-    // i.e., arr [i] -> data = arr [i + 1] -> data;
+int searchinlinear (struct linear * in, int key) {
+    int i = 0;
 
-    int i, j;
-    struct elle * parent;
-    i = 0;
-
-    while (i < ((this -> size) - 1)) {
-        this -> arr [i] -> data = this -> arr [i + 1] -> data;
+    while (in -> arr [i] -> data != key) {
         i ++;
-        /*
-        free (by -> arr [i]);
-        free (this -> arr [i]);
-         */
     }
 
-    parent = this -> arr [i] -> link [2];
-    j = whichchild (parent, this -> arr [i]);
-    parent -> link [j] = NULL;
-
-    free (this -> arr [i]);
+    return i;
 }
+
+
 // linear ends here;
 
 

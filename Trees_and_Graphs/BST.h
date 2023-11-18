@@ -8,7 +8,7 @@
 #endif //JSON_TREES_0_H
 
 
-#include "force_multiplier.h"
+#include <force_multiplier.h>
 
 
 
@@ -55,13 +55,13 @@ void printinorder (struct tree * tree){
 
 
 void printpreorder (struct tree * tree){
-    printf ("\n\nThe inorder traversal is:\n");
+    printf ("\n\nThe preorder traversal is:\n");
     internalprintpreorder (tree -> root);
 }
 
 
 void printpostorder (struct tree * tree){
-    printf ("\n\nThe inorder traversal is:\n");
+    printf ("\n\nThe postorder traversal is:\n");
     internalprintpostorder (tree -> root);
 }
 
@@ -181,7 +181,89 @@ void insertinBST (struct tree * tree, int key) {
 
 
 
+void deleteinBSTinternal (struct linear * in, int i) {
+    // For every element in arr,
+
+    // shifts by 1 position
+    // towards given index i
+    // if they have 2 child;
+    // i.e., arr [i] -> data = arr [i + 1] -> data;
+    // (initially i is given as argument);
+
+    // else if connects their parent
+    // if they have only 1 child;
+
+    // else makes link from their parent to them
+    // NULL if they have no child;
+
+    int j, k = i;
+    struct elle * parent;
+
+    while (k > -1) {
+        if (in -> arr [k] -> link [2] == NULL) {
+            parent = in -> arr [k - 1];
+        }
+
+        else {
+            parent = in->arr[k]->link[2];
+            j = whichchild (parent, in -> arr [k]);
+        }
+
+
+
+
+        if (in -> arr [k] -> link [0] == NULL
+            &&
+            in -> arr [k] -> link [1] == NULL) {
+            parent -> link [j] = NULL;
+            //free (in -> arr [k]);
+            break;
+        }
+
+
+        else if (in -> arr [k] -> link [0] != NULL
+                 &&
+                 in -> arr [k] -> link [1] != NULL) {
+            in -> arr [k] -> data = in -> arr [k - 1] -> data;
+            k --;
+        }
+
+
+        else {
+            parent -> link [j] = in -> arr [k - 1];
+            //free (in -> arr [k]);
+            break;
+        }
+
+
+        /*
+        free (by -> arr [i]);
+        free (this -> arr [i]);
+         */
+    }
+}
+
+
+
+
 void deleteinBST (struct tree * tree, int key) {
+    struct linear * qu, * in;
+    int i;
+
+
+    qu = init_st();
+    in = init_st();
+
+
+    DFS_inorder (tree, qu, in);
+    i = searchinlinear (in, key);
+    deleteinBSTinternal(in, i);
+}
+
+
+
+
+void deleteinBST_alt (struct tree * tree, int key) {
     struct elle * root, * pre;
     struct linear * this, * by;
     int i;
@@ -207,7 +289,7 @@ void deleteinBST (struct tree * tree, int key) {
     }
 
 
-    shiftlinear (this);
+    deleteinBSTinternal(this, 0);
 
 
 }
