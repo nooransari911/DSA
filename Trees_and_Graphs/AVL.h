@@ -109,3 +109,40 @@ struct elle * converged_rotations (struct tree * tree, struct elle * disturbed, 
             break;
     }
 }
+
+
+
+
+struct elle * balanceAVL (struct elle * disturbed, struct elle * created) {
+    int i, j;
+    struct elle * te0;
+
+    // i: for first operation;
+    // j: for second operation;
+    // 0: left, 1: right;
+    i = whichchild (created -> link [2], created);
+    j = whichchild (disturbed, created -> link [2]);
+
+
+    if (i == 0 && j == 0) {
+        // LL
+        leftrotate (disturbed);
+    }
+
+    if (i == 1 && j == 1) {
+        // RR
+        rightrotate (disturbed);
+    }
+
+    if (i == 0 && j == 1) {
+        // RL
+        rightrotate (disturbed -> link [1]);
+        leftrotate (disturbed);
+    }
+
+    if (i == 1 && j == 0) {
+        // LR
+        leftrotate (disturbed -> link [0]);
+        rightrotate (disturbed);
+    }
+}

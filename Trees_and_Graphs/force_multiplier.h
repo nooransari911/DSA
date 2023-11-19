@@ -27,7 +27,9 @@ typedef struct elle {
     int data;  // data to be processed by program
     struct elle * link [3];  // ptr to previous instance of type (struct elle)
     int mark; // marks elle
-    int BF;   // balance factor of elle
+    int BF;   // balance factor of elle;
+    // defined as height of left - height of right;
+
 } elle;
 
 
@@ -117,6 +119,13 @@ void insert_elle (struct elle* root, int r, int a) {
     // Makes new elle the [r]th child of given root;
     root -> link [r] = ptrnew;
     ptrnew -> link [2] = root;
+
+    if (r = 0) {
+        root -> BF ++;
+    }
+    else if (r = 1) {
+        root -> BF --;
+    }
 }
 
 

@@ -149,6 +149,7 @@ void insertinBST (struct tree * tree, int key) {
             //      of current root;
 
             if (root->link[0] != NULL) {
+                root -> BF ++;
                 root = root->link[0];
             }
 
@@ -167,6 +168,7 @@ void insertinBST (struct tree * tree, int key) {
             //      of current root;
 
             if (root->link[1] != NULL) {
+                root -> BF --;
                 root = root->link[1];
             }
 
