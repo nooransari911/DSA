@@ -1,14 +1,15 @@
+<html><h1><b>Project</b></h1></html>
+DBMS system in C and JavaScript
+
+
 <html><h1><b>Aim</b></h1></html>
-Design a DBMS system. DBMS system takes input from user and stores it in JSON file.
-
-
+Design a DBMS system. DBMS system takes input from user and stores it in JSON file. 
 
 
 <html><h1><b>Theory</b></h1></html>
 
-
 **DBMS**
-#DBMS
+
 A database management system (DBMS) is a software application that is used to create and manage databases. A DBMS provides users with a way to store, organize, and retrieve data. It also allows users to share data with other users and to control who has access to the data.
 
 There are many different types of DBMSs available, each with its own strengths and weaknesses. Some of the most popular DBMSs include:
@@ -26,6 +27,7 @@ DBMSs are an essential tool for any organization that needs to store and manage 
 
 
 **JSON**
+
 JSON (JavaScript Object Notation) is a lightweight, text-based data format used for representing structured data. It is commonly used for transmitting data between a server and a web application, as well as for storing data in a structured way. JSON is based on JavaScript object notation, and it uses a key-value pair format to represent data. Each key is a string, and each value can be a string, number, Boolean, array, or object. JSON is a popular choice for data interchange because it is easy to read and write, and it is supported by many programming languages.
 
 
@@ -33,6 +35,7 @@ JSON (JavaScript Object Notation) is a lightweight, text-based data format used 
 
 
 **REACT JS**
+
 React is a free and open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Meta (formerly Facebook) and a community of individual developers and companies. React uses a component-based architecture, which allows developers to build complex UIs by combining smaller, reusable components.
 
 Here are some of the features of React:
@@ -55,27 +58,9 @@ Sources
 
 JSON Server is a simple and free open-source Node.js library and command-line tool that provides a quick and easy way to create a REST API for your JSON data. It's perfect for prototyping, mocking, and developing APIs without having to set up a full-fledged database.
 
-To use JSON Server, simply install it with npm:
-
-```
-npm install -g json-server
-```
-
-Then, create a JSON file with your data.
-
-
-Now, you can start the JSON Server by running the following command:
-
-```
-json-server --watch data.json --port 8000
-```
-
-This will start a JSON Server instance on port 8000. 
-
-
 JSON Server also supports a number of other features, such as:
 
-* Pagination
-* Sorting
-* Filtering
-* Searching
+- Pagination
+- Sorting
+- Filtering
+- Searching
