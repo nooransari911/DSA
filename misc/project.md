@@ -60,36 +60,17 @@ To use JSON Server, simply install it with npm:
 npm install -g json-server
 ```
 
-Then, create a JSON file with your data. For example, let's create a file called `data.json` with the following data:
+Then, create a JSON file with your data.
 
-```
-[
-{
-"id": 1,
-"name": "John Doe",
-"email": "johndoe@example.com"
-},
-{
-"id": 2,
-"name": "Jane Doe",
-"email": "janedoe@example.com"
-}
-]
-```
 
 Now, you can start the JSON Server by running the following command:
 
 ```
-json-server --watch data.json
+json-server --watch data.json --port 8000
 ```
 
-This will start a JSON Server instance on port 3000. You can now access your data through the following endpoints:
+This will start a JSON Server instance on port 8000. 
 
-* `/api/users`: Get all users
-* `/api/users/:id`: Get a single user by ID
-* `/api/users`: Create a new user
-* `/api/users/:id`: Update a user by ID
-* `/api/users/:id`: Delete a user by ID
 
 JSON Server also supports a number of other features, such as:
 
