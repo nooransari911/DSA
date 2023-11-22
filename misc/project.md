@@ -64,3 +64,10 @@ JSON Server also supports a number of other features, such as:
 - Sorting
 - Filtering
 - Searching
+
+
+<html><h1><b>Design Part 1</b></h1></html>
+
+This is designed in two parts. First part is DBMS system in C. Second part is displaying JSON file in browser using React JS.
+
+C program takes input from user and stores user's inputs in JSON file.
