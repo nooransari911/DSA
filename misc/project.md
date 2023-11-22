@@ -1,8 +1,10 @@
-<html><h1>Aim</h1></html>
+<html><h1><b>Aim</b></h1></html>
+Design a DBMS system. DBMS system takes input from user and stores it in JSON file.
 
 
 
-**Theory::**
+
+<html><h1><b>Theory</b></h1></html>
 
 
 **DBMS**
