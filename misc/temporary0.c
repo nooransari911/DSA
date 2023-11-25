@@ -10,17 +10,18 @@ Welcome to GDB Online.
 
 
 #include<stdio.h>
-#define max 10
+#include "malloc.h"
+#define MAX 10
 
 typedef struct que
 {
 	int rear,front;
-	int data[max];
+	int data[MAX];
 }que;
 
 typedef struct matrix {
     int n;
-    int a [max] [max];
+    int a [MAX] [MAX];
 } matrix;
 
 
@@ -39,7 +40,7 @@ matrix * scanm () {
     m0 -> n = 4;
     
     for (i = 0; i < m0 -> n; i++) {
-        for (j = 0; j < m0 -> max; j++) {
+        for (j = 0; j < m0 -> n; j++) {
             printf ("enter <i>, <j>: ");
             scanf ("%d", &m0 -> a [i] [j]);
         }
@@ -87,7 +88,7 @@ int full()
   // 1 if full,
   // 0 otherwise;
   
-	if(p.rear==max-1) {
+	if(p.rear==MAX-1) {
 		return(1);
   }
   
@@ -96,16 +97,17 @@ int full()
 
 
 void init_p_vis () {
+    int i;
   p. front = 0;
   p. rear = -1;
 
   V -> n = 2;
 
-  for(i = 0;i<max;i++) {
+  for(i = 0;i<MAX;i++) {
 	  V -> a [0] [i] = 0;
   }
   
-  for(i = 0;i < max; i++) {
+  for(i = 0;i < MAX; i++) {
 	  V -> a [1] [i] = 0;
   }
 }
@@ -172,7 +174,7 @@ void DFS(int v)
 	while(empty() == 0) {
 		v = dele_st(); // access firstin
     
-		for(i = 0; i < max; i++) {
+		for(i = 0; i < MAX; i++) {
 			if (V -> a [1] [i] == 0 && G [v] [i] != 0) {
 				insert(i);
 				V -> a [0] [j] = i;
@@ -185,7 +187,7 @@ void DFS(int v)
 	}
 
 	
-	if (flag0 == 0 && k < max) {
+	if (flag0 == 0 && k < MAX) {
 		insert (V -> a [0] [j - k]);
 		k++;
 		flag0 = 0;
@@ -209,7 +211,7 @@ void BFS (int v) {
 	while(empty() == 0) {
 		v = dele(); // access firstin
     
-		for(i = 0; i < max; i++) {
+		for(i = 0; i < MAX; i++) {
 			if (G [v] [i] != 0) {
 				insert(i);
 				V -> a [0] [j] = i;
