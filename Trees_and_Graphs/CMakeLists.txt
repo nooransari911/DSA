@@ -8,4 +8,7 @@ include_directories(.)
 add_executable(Trees_and_Graphs
         BST.h
         force_multiplier.h
-        main.c)
+        main.c
+        bin/scratch.c
+        bin/scratch1.c
+        DBMS.h)

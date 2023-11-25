@@ -13,6 +13,7 @@
 #include "malloc.h"
 #include "stdio.h"
 #include "stdbool.h"
+#include "stdlib.h"
 
 
 
@@ -25,6 +26,20 @@
 
 typedef struct elle {
     int data;  // data to be processed by program
+
+    /*
+     * data is signature;
+     * signature is unique for every node created;
+     * id is integer form of name string;
+     * id is not necessarily unique;
+     *
+     * user data is inserted in BST
+     * based on id (effectively name);
+     */
+
+    char name [10], email [10];
+    int phone, id;
+
     struct elle * link [3];  // ptr to previous instance of type (struct elle)
     int mark; // marks elle
     int BF;   // balance factor of elle;
@@ -49,6 +64,9 @@ typedef struct linear {
     int lastin;
     int size;
 } linear;
+
+
+
 
 // structure definitions ends here;
 
@@ -94,10 +112,39 @@ struct elle* create (int a) {
     return te;
 }
 
+struct tree * inittree () {
+    struct tree* tree;
+    tree = (struct tree*) malloc (sizeof (struct tree));
+    tree -> root = NULL;
+}
 // init_all types ends here;
 
 
 
+
+/*
+ * Printing one elle;
+ *
+ */
+
+void printone (struct elle* one) {
+    printf ("\n");
+
+    if (one != NULL) {
+        printf("Record found;");
+        printf("\nsignature: %d", one -> data);
+        printf("\nid: %d", one -> id);
+        printf("\nname: %s", one->name);
+        printf("\nemail: %s", one->email);
+        printf("\nphone number: %d", one->phone);
+    }
+
+    else {
+        printf ("Record not exist;");
+    }
+
+    printf ("\n");
+}
 
 // 1. inserting a node into tree
 // 2. generating a new tree
@@ -120,10 +167,10 @@ void insert_elle (struct elle* root, int r, int a) {
     root -> link [r] = ptrnew;
     ptrnew -> link [2] = root;
 
-    if (r = 0) {
+    if (r == 0) {
         root -> BF ++;
     }
-    else if (r = 1) {
+    else if (r == 1) {
         root -> BF --;
     }
 }
@@ -175,6 +222,7 @@ void reset_tree (struct tree* tree, struct linear* in) {
 
     for (i = 0; i <= in -> lastin; i++) {
         in -> arr [i] -> mark = 0;
+        in -> arr [i] -> BF = 0;
     }
 }
 

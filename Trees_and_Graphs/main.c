@@ -3,7 +3,7 @@
 //
 
 
-#include <AVL.h>
+#include "AVL.h"
 
 
 
@@ -30,7 +30,7 @@ int main() {
     insertinBST(tree1, 13);
     insertinBST(tree1, 22);
 
-    te0 = searchinBST (tree1, 20);
+    te0 = searchdatainBST(tree1, 20);
     printf ("Item found;\nvalue: %d,\naddress: 0x%u", te0 -> data, te0);
     printinorder(tree1);
 
@@ -60,9 +60,10 @@ int main() {
     tree2 = (struct tree *) malloc (sizeof (struct tree));
     tree2 -> root = te0;
 
-    insertinBST(tree2, 17);
+    insertinBST(tree2, 18);
     insertinBST(tree2, 16);
     insertinBST(tree2, 10);
+    insertinBST(tree2, 17);
 
 
     printpostorder(tree2);
@@ -73,15 +74,17 @@ int main() {
 
 
     struct tree * tree3;
-    te0 = create (20);
+    te0 = create (10);
     tree3 = (struct tree *) malloc (sizeof (struct tree));
     tree3 -> root = te0;
 
-    insertinBST(tree3, 17);
     insertinBST(tree3, 16);
-    insertinBST(tree3, 10);
+    insertinBST(tree3, 18);
+    insertinBST(tree3, 20);
+    insertinBST(tree3, 17);
+
 
     printpostorder(tree3);
-    tree3 -> root = rightrotate (tree3 -> root);
+    tree3 -> root = leftrotate (tree3 -> root);
     printpostorder(tree3);
 }
