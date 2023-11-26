@@ -73,6 +73,39 @@ typedef struct linear {
 
 
 
+void foo (char *buf, int count) {
+    /*
+     * Passing character arrays [strings]
+     * to function
+     */
+
+    int i;
+
+    for(i = 0; i < count; ++i) {
+        buf[i] = i;
+    }
+}
+
+
+char* foo_x (int count) {
+    /*
+     * Returning character arrays [strings]
+     * from function
+     */
+
+    // take input for string of length 10 ::
+    // scanf (" %9[^\n]", name);
+
+
+    char *ret = malloc(count);
+    if(!ret)
+        return NULL;
+
+    for(int i = 0; i < count; ++i)
+        ret[i] = i;
+
+    return ret;
+}
 
 
 
@@ -131,12 +164,12 @@ void printone (struct elle* one) {
     printf ("\n");
 
     if (one != NULL) {
-        printf("Record found;");
-        printf("\nsignature: %d", one -> data);
-        printf("\nid: %d", one -> id);
-        printf("\nname: %s", one->name);
-        printf("\nemail: %s", one->email);
-        printf("\nphone number: %d", one->phone);
+        printf("Hospital name: I2IT");
+        printf("\nWard no.: %d", one -> data);
+        printf("\nRecord id: %d", one -> id);
+        printf("\nPatient name: %s", one->name);
+        printf("\nAppointment date: %s", one->email);
+        printf("\nBill: %d", one->phone);
     }
 
     else {
@@ -145,6 +178,9 @@ void printone (struct elle* one) {
 
     printf ("\n");
 }
+
+
+
 
 // 1. inserting a node into tree
 // 2. generating a new tree

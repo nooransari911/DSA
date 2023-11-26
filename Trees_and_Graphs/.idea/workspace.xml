@@ -21,30 +21,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5103597-0c15-4acd-86ae-4ba65f7b958a" name="Changes" comment="updated AVL and added scratch files">
-      <change afterPath="$PROJECT_DIR$/DBMS.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBMS.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/scatch3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/scratch.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/scratch1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trees_and_Graphs.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AVL.h" beforeDir="false" afterPath="$PROJECT_DIR$/AVL.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BST.h" beforeDir="false" afterPath="$PROJECT_DIR$/BST.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-94b5a89684218e0574ca.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-4888ea5d37e3d4225bc4.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-11-18T07-25-42-0312.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Trees_and_Graphs-Debug-8f9b35c8d4ad8b322dde.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trees_and_Graphs.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trees_and_Graphs.dir/main.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Trees_and_Graphs" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Trees_and_Graphs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMS" beforeDir="false" afterPath="$PROJECT_DIR$/DBMS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMS.h" beforeDir="false" afterPath="$PROJECT_DIR$/DBMS.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/force_multiplier.h" beforeDir="false" afterPath="$PROJECT_DIR$/force_multiplier.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,9 +57,9 @@
     <option name="majorVersion" value="2023" />
     <option name="minorVersion" value="2.2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2YL53nwIZzpmaaChTl7o7SF0VD7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -108,7 +89,7 @@
       <recent name="$PROJECT_DIR$/bin" />
     </key>
   </component>
-  <component name="RunManager" selected="C/C++ File.main.c">
+  <component name="RunManager" selected="C/C++ File.DBMS.c">
     <configuration name="Trees_and_Graphs" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Trees_and_Graphs" TARGET_NAME="Trees_and_Graphs" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Trees_and_Graphs" RUN_TARGET_NAME="Trees_and_Graphs">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -149,8 +130,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="C/C++ File.main.c" />
         <item itemvalue="C/C++ File.DBMS.c" />
+        <item itemvalue="C/C++ File.main.c" />
         <item itemvalue="Python.scatch3" />
       </list>
     </recent_temporary>
@@ -178,6 +159,8 @@
       <workItem from="1700897334844" duration="2389000" />
       <workItem from="1700902211275" duration="37000" />
       <workItem from="1700910832791" duration="9923000" />
+      <workItem from="1700925875471" duration="1550000" />
+      <workItem from="1700983139921" duration="1863000" />
     </task>
     <servers />
   </component>

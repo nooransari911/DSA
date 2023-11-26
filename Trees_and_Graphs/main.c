@@ -9,6 +9,17 @@
 
 
 int main() {
+    /*
+     * char arr[10] = {0};
+        foo(arr, 10);
+     */
+
+
+    /*
+     * char *p = foo(10);
+     */
+
+
     struct linear* qu, * in;
     struct tree * tree, * tree1;
     struct elle * te0, * te1;

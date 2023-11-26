@@ -8,7 +8,7 @@
 #endif //TREES_AND_GRAPHS_DBMS_H
 
 
-#include "AVL.h"
+#include "BST.h"
 
 
 
@@ -33,11 +33,11 @@ struct elle* inputelle (int sign) {
     struct elle* te0;
 
 
-    printf ("\nname: ");
+    printf ("\nPatient name: ");
     scanf (" %9[^\n]", name);
-    printf ("email: ");
+    printf ("Appointment date: ");
     scanf (" %9[^\n]", email);
-    printf ("phone number: ");
+    printf ("Bill: ");
     scanf (" %d", &phone);
 
 
@@ -149,7 +149,7 @@ struct elle * searchidinBST (struct tree* tree, int key){
 
 
     // Value not found, so returns NULL;
-    printf ("\nValue not found!!\n");
+    //printf ("\nValue not found!!\n");
     return NULL;
 }
 
@@ -171,7 +171,14 @@ void DBMSsearch (struct tree* tree, int key) {
 
     te0 = searchidinBST (tree, key);
 
-    printone (te0);
+    if (te0 != NULL) {
+        printf ("\nMedical history found!!");
+        printone (te0);
+    }
+
+    else {
+        printf ("Medical history not found!!");
+    }
 }
 
 
@@ -199,7 +206,7 @@ void DBMSprintall (struct tree* tree) {
     in = init_st();
 
     if (tree -> root == NULL) {
-        printf ("empty tree!!");
+        printf ("empty records!!");
     }
 
     else {
@@ -233,8 +240,8 @@ void DBMSmenu () {
         printf("2. Exit\n");
         printf("3. Add new record\n");
         printf("4. Delete by name\n");
-        printf("5. Print entire tree\n");
-        printf("6. Search by name\n");
+        printf("5. Print all records\n");
+        printf("6. Search by medical history\n");
 
         scanf("%d[^\n]", &op);
 
@@ -260,7 +267,7 @@ void DBMSmenu () {
                 break;
 
             case 6:
-                printf ("enter name: ");
+                printf ("Search medical history: ");
                 scanf (" %9[^\n]", name);
                 i = convert (name);
 
