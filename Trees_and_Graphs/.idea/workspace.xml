@@ -20,7 +20,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5103597-0c15-4acd-86ae-4ba65f7b958a" name="Changes" comment="updated AVL and added scratch files" />
+    <list default="true" id="a5103597-0c15-4acd-86ae-4ba65f7b958a" name="Changes" comment="updated AVL and added scratch files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,6 +156,9 @@
       <workItem from="1700910832791" duration="9923000" />
       <workItem from="1700925875471" duration="1550000" />
       <workItem from="1700983139921" duration="2079000" />
+      <workItem from="1701170200152" duration="338000" />
+      <workItem from="1701171172882" duration="183000" />
+      <workItem from="1701172920654" duration="1534000" />
     </task>
     <servers />
   </component>
