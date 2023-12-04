@@ -7,6 +7,7 @@
 
 #endif //TREES_AND_GRAPHS_AVL_H
 
+
 #include "BST.h"
 
 
@@ -16,27 +17,56 @@ struct elle * leftrotate (struct elle * disturbed) {
     int j;
 
 
+    /*
+     *           parent
+     *              |
+     *              |
+     *              |  j
+     *              |
+     *          disturbed
+     *          /       \
+     *         /         \
+     *        /           \
+     *       /             \
+     *                      X
+     *                     /
+     *                    /
+     *                   /
+     *                  /
+     *                 T1
+     */
+
+
     X = disturbed -> link [1];
     T1 = X -> link [0];
     T2 = X -> link [1];
 
 
-
+    // X's parent is now disturbed's parent
     X -> link [2] = disturbed -> link [2];
     if (disturbed -> link [2] != NULL) {
         parent = disturbed -> link [2];
+
         j = whichchild (parent, disturbed);
+        // parent's child is now X
         parent -> link [j] = X;
     }
 
-
+    // disturbed is now left child of X
     X -> link [0] = disturbed;
+    // T1 is now left child of disturbed
     disturbed -> link [1] = T1;
 
+    // X is now parent of disturbed
     disturbed -> link [2] = X;
+
+
+    // If T1 exists,
+    // then disturbed becomes parent of T1;
     if (T1 != NULL) {
         T1->link[2] = disturbed;
     }
+
 
     return X;
 }
@@ -49,6 +79,25 @@ struct elle * rightrotate (struct elle * disturbed) {
     struct elle * parent;
     int j;
 
+    /*
+     *           parent
+     *              |
+     *              |
+     *              |  j
+     *              |
+     *          disturbed
+     *          /       \
+     *         /         \
+     *        /           \
+     *       /             \
+     *      X
+     *       \
+     *        \
+     *         \
+     *          \
+     *          T2
+     */
+
 
     X = disturbed -> link [0];
     T1 = X -> link [0];
@@ -56,18 +105,26 @@ struct elle * rightrotate (struct elle * disturbed) {
 
 
 
+    // X's parent is now disturbed's parent
     X -> link [2] = disturbed -> link [2];
     if (disturbed -> link [2] != NULL) {
         parent = disturbed -> link [2];
         j = whichchild (parent, disturbed);
+        // parent's child is now X
         parent -> link [j] = X;
     }
 
 
+    // disturbed is now right child of X
     X -> link [1] = disturbed;
+    // T2 is now left child of disturbed
     disturbed -> link [0] = T2;
 
+    // X is now parent of disturbed
     disturbed -> link [2] = X;
+
+    // If T2 exists,
+    // then disturbed becomes parent of T2;
     if (T2 != NULL) {
         T2->link[2] = disturbed;
     }
@@ -114,6 +171,10 @@ struct elle * converged_rotations (struct tree * tree, struct elle * disturbed, 
 
 
 struct elle * balanceAVL (struct elle * disturbed, struct elle * created) {
+    /*
+     * takes unbalanced elle as input;
+     */
+
     int i, j;
     struct elle * te0;
 

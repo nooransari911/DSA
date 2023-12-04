@@ -18,6 +18,16 @@ int main() {
     /*
      * char *p = foo(10);
      */
+    /*
+    struct stack * dates;
+
+    dates = init_stack();
+    insert_stack(dates);
+    insert_stack(dates);
+    insert_stack(dates);
+    insert_stack(dates);
+    print_stack(dates);
+    */
 
 
     struct linear* qu, * in;
@@ -25,6 +35,7 @@ int main() {
     struct elle * te0, * te1;
 
     tree = generate_tree();
+
 
 
     te0 = create (10);

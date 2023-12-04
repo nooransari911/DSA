@@ -21,7 +21,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5103597-0c15-4acd-86ae-4ba65f7b958a" name="Changes" comment="updated AVL and added scratch files">
+      <change afterPath="$PROJECT_DIR$/DBMS_dates.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AVL.h" beforeDir="false" afterPath="$PROJECT_DIR$/AVL.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BST.h" beforeDir="false" afterPath="$PROJECT_DIR$/BST.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMS" beforeDir="false" afterPath="$PROJECT_DIR$/DBMS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBMS.h" beforeDir="false" afterPath="$PROJECT_DIR$/DBMS.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/force_multiplier.h" beforeDir="false" afterPath="$PROJECT_DIR$/force_multiplier.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +92,7 @@
       <recent name="$PROJECT_DIR$/bin" />
     </key>
   </component>
-  <component name="RunManager" selected="C/C++ File.DBMS.c">
+  <component name="RunManager" selected="C/C++ File.main.c">
     <configuration name="Trees_and_Graphs" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Trees_and_Graphs" TARGET_NAME="Trees_and_Graphs" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Trees_and_Graphs" RUN_TARGET_NAME="Trees_and_Graphs">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -125,8 +133,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="C/C++ File.DBMS.c" />
         <item itemvalue="C/C++ File.main.c" />
+        <item itemvalue="C/C++ File.DBMS.c" />
         <item itemvalue="Python.scatch3" />
       </list>
     </recent_temporary>
@@ -159,6 +167,8 @@
       <workItem from="1701170200152" duration="338000" />
       <workItem from="1701171172882" duration="183000" />
       <workItem from="1701172920654" duration="1534000" />
+      <workItem from="1701619606498" duration="6529000" />
+      <workItem from="1701694474379" duration="14613000" />
     </task>
     <servers />
   </component>
@@ -174,5 +184,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updated AVL and added scratch files" />
     <option name="LAST_COMMIT_MESSAGE" value="updated AVL and added scratch files" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CppFileRunConfiguration">
+        <watch expression="dates-&gt;a" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

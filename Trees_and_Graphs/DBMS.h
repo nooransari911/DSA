@@ -28,6 +28,10 @@ int convert (char* str) {
 
 
 struct elle* inputelle (int sign) {
+    /*
+     * Takes input from user
+     */
+
     char name[10], email[10];
     int phone, i;
     struct elle* te0;
@@ -35,8 +39,6 @@ struct elle* inputelle (int sign) {
 
     printf ("\nPatient name: ");
     scanf (" %9[^\n]", name);
-    printf ("Appointment date: ");
-    scanf (" %9[^\n]", email);
     printf ("Bill: ");
     scanf (" %d", &phone);
 
@@ -45,10 +47,8 @@ struct elle* inputelle (int sign) {
     for (i = 0; i < 10; i++) {
         te0 -> name [i] = name [i];
     }
-    for (i = 0; i < 10; i++) {
-        te0 -> email [i] = email [i];
-    }
     te0 -> phone = phone;
+    // converts name string into int;
     te0 -> id = convert (name);
 
     return te0;
@@ -63,11 +63,106 @@ void insertrecord (struct tree* tree, struct elle* record) {
      * with value of id of record elle;
      */
 
-    struct elle * root;
+    struct timespec initial0, final0;
+    struct timespec initial1, final1;
+
+    timespec_get (&initial1, TIME_UTC);
+    clock_gettime (CLOCK_PROCESS_CPUTIME_ID, &initial0);
+
+
+
+
+    struct elle * root, * te0;
+
+    te0 = root;
+    root = tree -> root;
+
 
     if (tree -> root == NULL) {
         tree -> root = record;
-        return;
+    }
+
+
+    else {
+
+
+        while (root != NULL) {
+            te0 = root;
+
+            if (record->id == root->id) {
+                /*
+                 * Duplicate elles are not allowed in BST,
+                 * So print "not possible" and return;
+                 */
+                printf("Cannot insert %s; already in BST", record -> name);
+                return;
+            }
+
+
+            else if (record->id < root->id) {
+                // Value is to be inserted in the left subtree;
+                // If the left child is not NULL,
+                //      the left child becomes root;
+                // Else
+                //      value to be inserted becomes the left child
+                //      of current root;
+
+                root->BF++;
+                root = root->link[0];
+
+
+            }
+
+
+            else if (record->id > root->id) {
+                // Value is to be inserted in the right subtree;
+                // If the right child is not NULL,
+                //      the right child becomes root;
+                // Else
+                //      value to be inserted becomes the right child
+                //      of current root;
+
+                root->BF--;
+                root = root->link[1];
+
+            }
+        }
+
+
+        if (te0 -> id > record -> id) {
+            te0 -> link[0] = record;
+            record -> link [2] = te0;
+        }
+
+        else {
+            te0 -> link[1] = record;
+            record -> link [2] = te0;
+        }
+    }
+
+
+    timespec_get(&final1, TIME_UTC);
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &final0);
+
+    print_time (&initial0, &final0, 0);
+    print_time (&initial1, &final1, 1);
+}
+
+
+
+
+void insertrecord_alt (struct tree* tree, struct elle* record) {
+    /* Inserts elle into BST;
+     * Compares value of id of root elle
+     * with value of id of record elle;
+     */
+
+
+    struct elle * root;
+
+
+    if (tree -> root == NULL) {
+        tree -> root = record;
     }
 
     else {
@@ -115,7 +210,11 @@ void insertrecord (struct tree* tree, struct elle* record) {
             }
         }
     }
+
 }
+
+
+
 
 
 struct elle * searchidinBST (struct tree* tree, int key){
@@ -166,7 +265,7 @@ void DBMSinsert (struct tree* tree, int sign) {
 }
 
 
-void DBMSsearch (struct tree* tree, int key) {
+struct elle * DBMSsearch (struct tree* tree, int key) {
     struct elle* te0;
 
     te0 = searchidinBST (tree, key);
@@ -179,6 +278,8 @@ void DBMSsearch (struct tree* tree, int key) {
     else {
         printf ("Medical history not found!!");
     }
+
+    return te0;
 }
 
 
@@ -187,7 +288,7 @@ void DBMSdelete (struct tree* tree) {
     int id;
     struct elle* te0;
 
-    printf ("Enter name to be deleted:");
+    printf ("Enter name to be deleted: ");
     scanf (" %9[^\n]", name);
 
     id = convert (name);
@@ -195,6 +296,69 @@ void DBMSdelete (struct tree* tree) {
     te0 = searchidinBST (tree, id);
     if (te0 != NULL){
         deleteinBST(tree, te0->data);
+    }
+}
+
+
+void DBMSlatestdate (struct tree * tree, int sign) {
+    struct elle *te0;
+    int i = 0;
+
+    te0 = DBMSsearch(tree, sign);
+
+    if (te0 != NULL) {
+        print_stack_latest(te0->dates);
+    }
+}
+
+
+void DBMSinsertdate (struct tree * tree, int sign) {
+    struct elle * te0;
+    int i = 0;
+
+    te0 = DBMSsearch (tree, sign);
+
+    if (te0 != NULL)
+    {
+        while (true) {
+            printf("\nDo you want to add date?\n");
+            printf("Enter 1 to add date, enter 0 to cancel ");
+            scanf("%d", &i);
+
+            if (i == 1) {
+                insert_stack(te0->dates);
+            } else if (i == 0) {
+                printf("\nOperation has been cancelled; returning\n");
+                return;
+            } else {
+                printf("enter valid option");
+            }
+        }
+    }
+}
+
+
+void DBMSdeletedate (struct tree * tree, int sign) {
+    struct elle * te0;
+    int i = 0;
+
+    te0 = DBMSsearch (tree, sign);
+
+    if (te0 != NULL) {
+        while (true) {
+            printf("\nDo you want to delete date: %s?\n", &(te0->dates->a[te0->dates->lastin][10]));
+            printf("Enter 1 to delete latest date, enter 0 to cancel ");
+            scanf("%d", &i);
+
+            if (i == 1) {
+                delete_stack(te0->dates);
+            } else if (i == 0) {
+                printf("\nOperation has been cancelled; returning\n");
+                return;
+            } else {
+                printf("enter valid option");
+            }
+        }
     }
 }
 
@@ -229,6 +393,11 @@ void DBMSmenu () {
     struct tree* tree;
     struct elle* te0;
 
+
+
+
+
+
     tree = inittree();
     te0 = (struct elle*) malloc (sizeof (struct elle));
 
@@ -242,6 +411,10 @@ void DBMSmenu () {
         printf("4. Delete by name\n");
         printf("5. Print all records\n");
         printf("6. Search by medical history\n");
+        printf("7. Add appointment date\n");
+        printf("8. Delete latest appointment date\n");
+        printf("9. Get latest appointment date\n");
+
 
         scanf("%d[^\n]", &op);
 
@@ -272,6 +445,31 @@ void DBMSmenu () {
                 i = convert (name);
 
                 DBMSsearch (tree, i);
+                break;
+
+            case 7:
+                printf ("Insert dates; enter name: ");
+                scanf (" %9[^\n]", name);
+                i = convert (name);
+
+                DBMSinsertdate (tree, i);
+                break;
+
+            case 8:
+                printf ("Delete dates; enter name: ");
+                scanf (" %9[^\n]", name);
+                i = convert (name);
+
+                DBMSdeletedate (tree, i);
+                break;
+
+            case 9:
+                printf ("Get latest date; enter name: ");
+                scanf (" %9[^\n]", name);
+                i = convert (name);
+
+                DBMSlatestdate (tree, i);
+                break;
         }
     }
 }

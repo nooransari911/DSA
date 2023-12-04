@@ -126,6 +126,76 @@ void insertinBST (struct tree * tree, int key) {
     /* Inserts a value into BST;
      *
      */
+
+
+
+    struct elle * root, * te0;
+    root = tree -> root;
+    te0 = root;
+
+
+    while (root != NULL) {
+        te0 = root;
+
+
+        if (key == root->data) {
+            /*
+             * Duplicate elles are not allowed in BST,
+             * So print "not possible" and return;
+             */
+            printf("Cannot insert %d, already in BST", key);
+            return;
+        }
+
+        else if (key < root->data) {
+            // Value is to be inserted in the left subtree;
+            // If the left child is not NULL,
+            //      the left child becomes root;
+            // Else
+            //      value to be inserted becomes the left child
+            //      of current root;
+
+            root -> BF ++;
+            root = root->link[0];
+        }
+
+        else if (key > root->data) {
+            // Value is to be inserted in the right subtree;
+            // If the right child is not NULL,
+            //      the right child becomes root;
+            // Else
+            //      value to be inserted becomes the right child
+            //      of current root;
+
+            root -> BF --;
+            root = root->link[1];
+
+        }
+    }
+
+
+    if (te0 -> data > key) {
+        insert_elle (te0, 0, key);
+    }
+
+    else {
+        insert_elle (te0, 1, key);
+    }
+
+
+}
+
+
+
+
+void insertinBST_alt (struct tree * tree, int key) {
+    /* Inserts a value into BST;
+     *
+     */
+
+
+
+
     struct elle * root;
     root = tree -> root;
 

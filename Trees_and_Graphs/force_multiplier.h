@@ -10,10 +10,8 @@
 
 
 
-#include "malloc.h"
-#include "stdio.h"
-#include "stdbool.h"
-#include "stdlib.h"
+#include "DBMS_dates.h"
+
 
 
 
@@ -27,17 +25,18 @@
 typedef struct elle {
     int data;  // data to be processed by program
 
-    /*
+    /* FOR DBMS ::
      * data is signature;
      * signature is unique for every node created;
      * id is integer form of name string;
      * id is not necessarily unique;
      *
      * user data is inserted in BST
-     * based on id (effectively name);
+     * based on id (effectively name)
+     * bill is phone;
      */
 
-    char name [10], email [10];
+    char name [10];
     int phone, id;
 
     struct elle * link [3];  // ptr to previous instance of type (struct elle)
@@ -45,6 +44,9 @@ typedef struct elle {
     int BF;   // balance factor of elle;
     // defined as height of left - height of right;
 
+
+    //implemented appointment dates as a stack;
+    struct stack * dates;
 } elle;
 
 
@@ -141,7 +143,7 @@ struct elle* create (int a) {
     te -> link [2] = NULL;
     te -> mark = 0;
     te -> BF = 0;
-
+    te -> dates = init_stack();
     return te;
 }
 
@@ -157,7 +159,7 @@ struct tree * inittree () {
 
 /*
  * Printing one elle;
- *
+ *  Printing time taken;
  */
 
 void printone (struct elle* one) {
@@ -168,8 +170,8 @@ void printone (struct elle* one) {
         printf("\nWard no.: %d", one -> data);
         printf("\nRecord id: %d", one -> id);
         printf("\nPatient name: %s", one->name);
-        printf("\nAppointment date: %s", one->email);
         printf("\nBill: %d", one->phone);
+        print_stack(one -> dates);
     }
 
     else {
@@ -178,6 +180,28 @@ void printone (struct elle* one) {
 
     printf ("\n");
 }
+
+
+void print_time (struct timespec * initial, struct timespec * final, int op) {
+    double diff;
+
+    diff = (final -> tv_sec - initial -> tv_sec) + ((final -> tv_nsec - initial -> tv_nsec)
+                                                    / 1000.0);
+
+
+    if (op == 0) {
+        printf ("\n\nPROCESS TIME IS: %lf us\n\n", diff);
+    }
+
+    else if (op == 1) {
+        printf ("\n\nWALL TIME IS: %lf us\n\n", diff);
+    }
+}
+
+
+/*
+ * print ends here
+ */
 
 
 
@@ -398,6 +422,15 @@ int searchinlinear (struct linear * in, int key) {
  */
 
 void BFS_iterative (struct tree* tree, struct  linear* qu, struct  linear* in) {
+
+    struct timespec initial0, final0;
+    struct timespec initial1, final1;
+
+    timespec_get (&initial1, TIME_UTC);
+    clock_gettime (CLOCK_PROCESS_CPUTIME_ID, &initial0);
+
+
+
     struct elle* te0;
     te0 = create(0);
     int i, j;
@@ -417,12 +450,35 @@ void BFS_iterative (struct tree* tree, struct  linear* qu, struct  linear* in) {
     }
 
     reset_tree(tree, in);
+
+
+
+
+
+    timespec_get(&final1, TIME_UTC);
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &final0);
+
+    print_time (&initial0, &final0, 0);
+    print_time (&initial1, &final1, 1);
+
+
 }
 
 
 
 
 void DFS_preorder_iterative (struct tree* tree, struct linear* qu, struct linear* in) {
+
+    struct timespec initial0, final0;
+    struct timespec initial1, final1;
+
+    timespec_get (&initial1, TIME_UTC);
+    clock_gettime (CLOCK_PROCESS_CPUTIME_ID, &initial0);
+
+
+
+
+
     struct elle* te0;
     te0 = create(0);
     int i, j, flag0;
@@ -451,7 +507,18 @@ void DFS_preorder_iterative (struct tree* tree, struct linear* qu, struct linear
     }
 
     reset_tree(tree, in);
+
+
+
+    timespec_get(&final1, TIME_UTC);
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &final0);
+
+    print_time (&initial0, &final0, 0);
+    print_time (&initial1, &final1, 1);
+
 }
+
+
 
 
 void DFS_preorder_iterative_alt (struct tree* tree, struct linear* qu, struct linear* in) {
@@ -528,9 +595,27 @@ void DFS_inorder_internal (struct elle * root, struct linear * in) {
     }
 }
 
+
+
+
 void DFS_preorder (struct tree* tree, struct linear* qu, struct linear* in) {
+    struct timespec initial0, final0;
+    struct timespec initial1, final1;
+
+    timespec_get (&initial1, TIME_UTC);
+    clock_gettime (CLOCK_PROCESS_CPUTIME_ID, &initial0);
+
+
     DFS_preorder_internal (tree -> root, in);
     reset_tree(tree, in);
+
+
+
+    timespec_get(&final1, TIME_UTC);
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &final0);
+
+    print_time (&initial0, &final0, 0);
+    print_time (&initial1, &final1, 1);
 }
 
 
