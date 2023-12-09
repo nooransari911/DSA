@@ -1,0 +1,419 @@
+Script started on 2023-12-08 23:32:24+05:30 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="145" LINES="34"]
+]0;ansarimn@fedora:~/Downloads/DSA/Trees_and_Graphs[?2004h[ansarimn@fedora Trees_and_Graphs]$ exitvalgrind ./DBMS.outexit[C[C[K[K[K[K[K[K[K[K
+[?2004l==148204== Memcheck, a memory error detector
+==148204== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==148204== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==148204== Command: ./DBMS
+==148204== 
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+1
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+3
+
+Patient name: aa
+Bill: 11
+
+
+PROCESS TIME IS: 301.908000 ms
+
+
+
+WALL TIME IS: 666.611000 ms
+
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+
+3
+
+Patient name: aa
+Bill: 33
+Cannot insert aa; already in BST
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+3
+
+Patient name: ff
+Bill: 22
+
+
+PROCESS TIME IS: 995.028000 ms
+
+
+
+WALL TIME IS: 1012.331000 ms
+
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+3
+
+Patient name: xx
+Bill: 22
+
+
+PROCESS TIME IS: 12.537000 ms
+
+
+
+WALL TIME IS: 15.622000 ms
+
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+3
+
+Patient name: vv
+Bill: 22
+
+
+PROCESS TIME IS: 568.189000 ms
+
+
+
+WALL TIME IS: 570.454000 ms
+
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+3
+
+Patient name: dd
+Bill: hh  22
+
+
+PROCESS TIME IS: 7.801000 ms
+
+
+
+WALL TIME IS: 10.913000 ms
+
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+5
+
+Hospital name: I2IT
+Ward no.: 0
+Record id: 194
+Patient name: aa
+Bill: 11
+Appointment dates are: 
+No dates have been added
+
+Hospital name: I2IT
+Ward no.: 5
+Record id: 200
+Patient name: dd
+Bill: 22
+Appointment dates are: 
+No dates have been added
+
+Hospital name: I2IT
+Ward no.: 2
+Record id: 204
+Patient name: ff
+Bill: 22
+Appointment dates are: 
+No dates have been added
+
+Hospital name: I2IT
+Ward no.: 4
+Record id: 236
+Patient name: vv
+Bill: 22
+Appointment dates are: 
+No dates have been added
+
+Hospital name: I2IT
+Ward no.: 3
+Record id: 240
+Patient name: xx
+Bill: 22
+Appointment dates are: 
+No dates have been added
+
+
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+6
+Search medical history: aa
+
+Medical history found!!
+Hospital name: I2IT
+Ward no.: 0
+Record id: 194
+Patient name: aa
+Bill: 11
+Appointment dates are: 
+No dates have been added
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+6
+Search medical history: xx
+
+Medical history found!!
+Hospital name: I2IT
+Ward no.: 3
+Record id: 240
+Patient name: xx
+Bill: 22
+Appointment dates are: 
+No dates have been added
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+6
+Search medical history: dd
+
+Medical history found!!
+Hospital name: I2IT
+Ward no.: 5
+Record id: 200
+Patient name: dd
+Bill: 22
+Appointment dates are: 
+No dates have been added
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+7
+Insert dates; enter name: aa
+
+Medical history found!!
+Hospital name: I2IT
+Ward no.: 0
+Record id: 194
+Patient name: aa
+Bill: 11
+Appointment dates are: 
+No dates have been added
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 1
+Appointment date: 22  0
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 0 1
+Appointment date: 1
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 1
+Appointment date: 2
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 1
+Appointment date: 3
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 1
+Appointment date: 4
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 0
+
+Operation has been cancelled; returning
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+6
+Search medical history: xx
+
+Medical history found!!
+Hospital name: I2IT
+Ward no.: 3
+Record id: 240
+Patient name: xx
+Bill: 22
+Appointment dates are: 
+No dates have been added
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+7
+Insert dates; enter name: xx
+
+Medical history found!!
+Hospital name: I2IT
+Ward no.: 3
+Record id: 240
+Patient name: xx
+Bill: 22
+Appointment dates are: 
+No dates have been added
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 1
+Appointment date: 1 0
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 1
+Appointment date: 1
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 1
+Appointment date: 
+2
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 1
+Appointment date: 3
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 
+1
+Appointment date: 4
+
+Do you want to add date?
+Enter 1 to add date, enter 0 to cancel 0
+
+Operation has been cancelled; returning
+
+
+1. Start operation
+2. Exit
+3. Add new record
+4. Delete by name
+5. Print all records
+6. Search by medical history
+7. Add appointment date
+8. Delete latest appointment date
+9. Get latest appointment date
+2
+==148204== 
+==148204== HEAP SUMMARY:
+==148204==     in use at exit: 1,440 bytes in 16 blocks
+==148204==   total heap usage: 18 allocs, 2 frees, 3,488 bytes allocated
+==148204== 
+==148204== LEAK SUMMARY:
+==148204==    definitely lost: 416 bytes in 3 blocks
+==148204==    indirectly lost: 104 bytes in 1 blocks
+==148204==      possibly lost: 0 bytes in 0 blocks
+==148204==    still reachable: 920 bytes in 12 blocks
+==148204==         suppressed: 0 bytes in 0 blocks
+==148204== Rerun with --leak-check=full to see details of leaked memory
+==148204== 
+==148204== For lists of detected and suppressed errors, rerun with: -s
+==148204== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;ansarimn@fedora:~/Downloads/DSA/Trees_and_Graphs[?2004h[ansarimn@fedora Trees_and_Graphs]$ exit
+[?2004lexit
+
+Script done on 2023-12-08 23:34:16+05:30 [COMMAND_EXIT_CODE="0"]
