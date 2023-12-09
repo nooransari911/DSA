@@ -12,3 +12,4 @@ add_executable(Trees_and_Graphs
         bin/scratch.c
         bin/scratch1.c
         DBMS.h)
+
